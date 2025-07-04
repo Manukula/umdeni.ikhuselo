@@ -10,7 +10,7 @@
   <!-- js scritp here -->
   <link rel="stylesheet" href="script.js">
 
-  <title>Umdeni Family Portal</title>
+  <title>Umndeni Family Portal</title>
   <style>
     body {
       font-family: 'Segoe UI', Arial, sans-serif;
@@ -234,9 +234,18 @@
       transform: scale(1.03);
     }
 
+    /* contact secrion */
+
     .contact-section {
       padding: 3rem 1rem;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
       text-align: center;
+    }
+
+    .contact-text{
+      flex-direction: 2rem;
     }
 
     .contact-section h2 {
@@ -300,6 +309,32 @@
       margin: 0.5rem 0;
     }
 
+    .contact-img {
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      flex: 1;
+      align-self: flex-start;
+      margin-left: auto;
+    }
+
+      @media (max-width: 700px) {
+      .contact-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .contact-img {
+        margin-left: 0;
+        margin-top: 1.5rem;
+      }
+    }
+
+
+    /* location part */
+
     .hours {
       margin-top: 1.5rem;
       font-size: 0.95rem;
@@ -310,7 +345,7 @@
       text-align: center;
       background-color: #f4f8fa;
       padding: 3rem 1rem;
-      margin-bottom: 60px; /* Add space above footer */
+      margin-bottom: 60px; 
     }
 
     .location-section h2 {
@@ -371,10 +406,46 @@
         grid-template-columns: 1fr;
       }
     }
+
+     .icon {
+      font-size: 32px;
+      color: #1877f3;
+      position: fixed;
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%);
+      z-index: 1000;
+      background: #fff;
+      border-radius: 10%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+    .icon:hover {
+      background: #1877f3;
+      color: #fff;
+    }
+
+    .card {
+      position: fixed;
+      z-index: 1000;
+    }
   </style>
  
 </head>
 <body>
+
+  <!-- icon -->
+  <div class="card">
+  <a href="https://www.facebook.com/share/1BraDk6yC9/?mibextid=wwXIfr" target="_blank" rel="noopener" class="icon" aria-label="Facebook">
+    <i class="fab fa-facebook-f"></i>
+  </a>
+</div>
 
   <!-- Header/Menu -->
   <section class="menu">
@@ -424,31 +495,34 @@
       <img src="hope1.jpg" alt="Shopping support">
       <img src="hope10.jpg" alt="Smiling elders">
       <img src="hope5.jpg" alt="Mental health awareness">
-      <img src="hope5.jpg" alt="Counseling session">
+      <img src="hope 123.jpg" alt="Counseling session">
     </div>
   </section>
 
   <!-- Contact -->
   <section class="contact-section" id="contact">
-    <h2>Contact Us</h2>
-    <h3>Better yet, see us in person!</h3>
-    <p>We love our community, feel free to visit during normal business hours.</p>
-
-    <a class="whatsapp-button" href="https://wa.me/27685015321" target="_blank">
-      <img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp.png" alt="WhatsApp" />
-      Message us on WhatsApp
-    </a>
-
-    <div class="contact-details" id="contact-details">
-      <h4>Ikhuselo</h4>
-      <a class="phone" href="tel:+27835032873">083 503 2873</a>
-
-      <div class="hours">
-        <h4>Hours</h4>
-        <p>Open today 09:00 – 17:00</p>
+  <div class="contact-content">
+    <div class="contact-text">
+      <h2>Contact Us</h2>
+      <h3>Better yet, see us in person!</h3>
+      <p>We love our community, feel free to visit during normal business hours.</p>
+      <a class="whatsapp-button" href="https://wa.me/27685015321" target="_blank">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp.png" alt="WhatsApp" />
+        Message us on WhatsApp
+      </a>
+      <div class="contact-details" id="contact-details">
+        <h4>Ikhuselo</h4>
+        <a class="phone" href="tel:+27835032873">083 503 2873</a>
+        <div class="hours">
+          <h4>Hours</h4>
+          <p>Open today 09:00 – 17:00</p>
+        </div>
       </div>
     </div>
-  </section>
+    <img src="image0_0.jpg" alt="Contact Ikhuselo" class="contact-img">
+  </div>
+</section>
+
 
   <!-- Location -->
   <section class="location-section">
@@ -467,9 +541,11 @@
   </div>
 </section>
 
+
+
   <!-- Footer -->
   <footer>
-    &copy; 2025 Umdeni Family. All rights reserved.
+    &copy; 2025 Umndeni Family. All rights reserved.
   </footer>
 
  <script>
@@ -489,6 +565,20 @@
         }
       }
     });
+
+    // facebook ican scroll
+
+    // Show the Facebook icon only after scrolling 150px
+  window.addEventListener('scroll', function() {
+    const fbCard = document.getElementById('fb-card');
+    if (window.scrollY > 150) {
+      fbCard.style.display = 'block';
+    } else {
+      fbCard.style.display = 'none';
+    }
+  });
+  // Hide by default on page load
+  document.getElementById('fb-card').style.display = 'none';
  </script>  
 
 </body>
